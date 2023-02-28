@@ -35,7 +35,7 @@ server <- function(input, output) {
 
   output$main_plot <- renderPlot({
     hist(
-      faithful2$eruptions,
+      bb$eruptions,
       probability = TRUE,
       breaks = as.numeric(input$n_breaks),
       xlab = "Duration (minutes)",
@@ -43,11 +43,11 @@ server <- function(input, output) {
     )
 
     if (input$individual_obs) {
-      rug(faithful2$eruptions)
+      rug(bb$eruptions)
     }
 
     if (input$density) {
-      dens <- density(faithful2$eruptions, adjust = input$bw_adjust)
+      dens <- density(bb$eruptions, adjust = input$bw_adjust)
       lines(dens, col = "blue")
     }
   })
